@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  # Mongodb
+  mongo:
+    image: mongo:latest
+    container_name: first-miniprogram-mongo
+    restart: always
+    volumes:
+      - ./tmp/mongodb:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1
+    ports:
+      - 27017:27017
+
+  # Mongodb图形化界面远程管理
+  mongo-express:
+    image: mongo-express:latest
+    container_name: first-miniprogram-mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1
+    depends_on:
+      - mongo
