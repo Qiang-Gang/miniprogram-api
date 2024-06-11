@@ -1,3 +1,4 @@
+import { AppController } from './app.controller';
 // import { CatsModule } from './cats/cats.module';
 import { Module } from '@nestjs/common';
 // import { MongooseModule } from '@nestjs/mongoose';
@@ -15,5 +16,7 @@ import { Module } from '@nestjs/common';
     // ),
     // CatsModule,
   ],
+  controllers: [AppController],
+  providers: [],
 })
 export class AppModule {}
