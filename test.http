@@ -1,10 +1,12 @@
 ### Test database connection
-POST http://localhost:3000/cats
+POST http://192.168.99.41:3000/cats
 content-type: application/json
 
 
 {
-  "name": "Tom",
-  "age": 3,
+  "name": "ccc",
+  "age": 4,
   "breed": "Siamese"
 }
+
+### http://192.168.99.41:8081/db/test/cats
